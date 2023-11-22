@@ -20,11 +20,11 @@
   <body>
     <section class="wrapper">
       <div class="form signup">
-        <header>Signup</header>
-        <form action="#">
-          <input type="text" placeholder="Full name" required />
-          <input type="text" placeholder="Email address" required />
-          <input type="password" placeholder="Password" required />
+        <header>Moriah Signup</header>
+        <form action="register.php" method="post">
+          <input type="text" placeholder="Full name" required name="fullname" />
+          <input type="text" placeholder="Email address" required name="email" />
+          <input type="password" placeholder="Password" required name="password"/>
           <div class="checkbox">
             <input type="checkbox" id="signupCheck" />
             <label for="signupCheck">I accept all terms & conditions</label>
@@ -34,10 +34,10 @@
       </div>
 
       <div class="form login">
-        <header>Login</header>
-        <form action="#">
-          <input type="text" placeholder="Email address" required />
-          <input type="password" placeholder="Password" required />
+        <header>Moriah Login</header>
+        <form action="login.php" method="post">
+          <input type="text" placeholder="Email address" name="email" required />
+          <input type="password" placeholder="Password" name="password" required />
           <a href="#">Forgot password?</a>
           <input type="submit" value="Login" />
         </form>
