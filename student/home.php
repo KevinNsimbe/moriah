@@ -1,4 +1,8 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 //session_start(); // Start the session at the beginning of the script
 $user_name = $_SESSION['user_name'];
 // Check if the user is logged in and retrieve the user ID
@@ -13,22 +17,20 @@ $query = "SELECT id, course_name FROM courses";
 $statement = $pdo->query($query);
 $courses = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-// Example query to check if the user has any course applications
-$queryCheck = "SELECT COUNT(*) AS total_applications FROM course_applications WHERE user_id = $user_id";
-// Execute the query and fetch the result
 
+$queryCheck = "SELECT ca.course_id, c.course_name 
+               FROM course_applications ca
+               INNER JOIN courses c ON ca.course_id = c.id
+               WHERE ca.user_id = $user_id";
+// Example query to check if the user has any course applications
 $statementCheck = $pdo->prepare($queryCheck);
 $statementCheck->execute();
 $result = $statementCheck->fetch(PDO::FETCH_ASSOC);
 
-if ($result && $result['total_applications'] > 0) {
-    echo "<p>Hello, $user_name! You have already applied for course(s).</p>";
+if ($result) {
+    echo "<p>Hello, $user_name! You have applied for {$result['course_name']}.</p>";
     // Display information or courses the user has applied for
 } else {
-
-    echo '
-    
-    ';
     echo "<h1>Hello, $user_name!</h1>";
     echo "<p>You have not applied for any course yet.</p>";
     // Display the application form for users with no applications

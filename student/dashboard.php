@@ -32,7 +32,7 @@ $user_name = $_SESSION['user_name'];
         <!-- Navigation bar on the left -->
         <nav>
             <ul>
-            <li><a href="dashboard.php" data-page="dashboard.php" class="nav-link">Dashboard</a></li>
+            <li><a href="home.php" data-page="home.php" class="nav-link">Dashboard</a></li>
             <li><a href="academic_info.php" data-page="academic_info.php" class="nav-link">Academic Information</a></li>
             <li><a href="courses.php" data-page="courses.php" class="nav-link">Courses</a></li>
             <li><a href="results.php" data-page="results.php" class="nav-link">Results</a></li>
