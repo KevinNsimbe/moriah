@@ -8,7 +8,9 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 
 // Display the logged-in student's name
 $user_name = $_SESSION['user_name'];
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +32,7 @@ $user_name = $_SESSION['user_name'];
         <!-- Navigation bar on the left -->
         <nav>
             <ul>
-            <li><a href="home.php" data-page="home.php" class="nav-link">Dashboard</a></li>
+            <li><a href="dashboard.php" data-page="dashboard.php" class="nav-link">Dashboard</a></li>
             <li><a href="academic_info.php" data-page="academic_info.php" class="nav-link">Academic Information</a></li>
             <li><a href="courses.php" data-page="courses.php" class="nav-link">Courses</a></li>
             <li><a href="results.php" data-page="results.php" class="nav-link">Results</a></li>
@@ -43,7 +45,11 @@ $user_name = $_SESSION['user_name'];
         <div class="main-content" id="dashboard-content">
             <section>
                 <!-- Your dashboard content -->
-                <p>This is the dashboard. Hello, <?php echo $user_name; ?>!</p>
+                 <?php 
+            
+                include_once 'home.php';
+                ?>!</p>
+
                 <!-- Other dashboard content -->
             </section>
         </div>

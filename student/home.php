@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session at the beginning of the script
+//session_start(); // Start the session at the beginning of the script
 $user_name = $_SESSION['user_name'];
 // Check if the user is logged in and retrieve the user ID
 
