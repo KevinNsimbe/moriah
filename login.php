@@ -18,7 +18,7 @@ if ($result->num_rows == 1) {
         $_SESSION['user_name'] = $row['full_name'];
         echo "Login successful!";
         // Redirect to dashboard or another page
-        // header('Location: dashboard.php');
+        header('Location: student/dashboard.php');
     } else {
         echo "Incorrect password!";
     }

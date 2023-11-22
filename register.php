@@ -11,6 +11,7 @@ $sql = "INSERT INTO users (full_name, email, password) VALUES ('$fullname', '$em
 
 if ($conn->query($sql) === TRUE) {
     echo "Registration successful!";
+    header('Location: student/dashboard.php');
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
