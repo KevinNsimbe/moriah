@@ -58,6 +58,10 @@ nav ul li a {
     padding: 20px;
 }
 
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Light background color on hover */
+}
+
 /* ... (other CSS code) ... */
 
 /* Hamburger menu icon styles */
