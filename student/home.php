@@ -37,7 +37,6 @@ if ($result) {
     echo "<h2>Apply for a Course</h2>";
    
     include_once 'appform.php';
-    echo "<input type='submit' value='Apply'>";
-    echo "</form>";
+   
 }
 ?>
