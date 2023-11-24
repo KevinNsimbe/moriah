@@ -9,7 +9,7 @@
         echo "<option value='{$course['id']}'>{$course['course_name']}</option>";
     }
     ?>
- </select><br><br>
+ </select><br>
     <label for='message'>Additional Message (optional):</label><br>
    <textarea id='message' name='message' rows='4' cols='50'></textarea><br>
 
