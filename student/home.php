@@ -35,15 +35,7 @@ if ($result) {
     echo "<p>You have not applied for any course yet.</p>";
     // Display the application form for users with no applications
     echo "<h2>Apply for a Course</h2>";
-    echo "<form action='process_application.php' method='POST'>";
-    echo "<label for='course'>Select a Course:</label><br>";
-    echo "<select id='course' name='course'>";
-    foreach ($courses as $course) {
-        echo "<option value='{$course['id']}'>{$course['course_name']}</option>";
-    }
-    echo "</select><br><br>";
-    echo "<label for='message'>Additional Message (optional):</label><br>";
-    echo "<textarea id='message' name='message' rows='4' cols='50'></textarea><br><br>";
+   
     include_once 'appform.php';
     echo "<input type='submit' value='Apply'>";
     echo "</form>";

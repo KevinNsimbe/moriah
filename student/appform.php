@@ -1,3 +1,15 @@
+<form action='process_application.php' method='POST'>
+   <label for='course'>Select a Course:</label><br>
+    <select id='course' name='course'>
+        <?php
+    foreach ($courses as $course) {
+        echo "<option value='{$course['id']}'>{$course['course_name']}</option>";
+    }
+    ?>
+ </select><br><br>
+    <label for='message'>Additional Message (optional):</label><br>
+   <textarea id='message' name='message' rows='4' cols='50'></textarea><br><br>
+
 
     <label for="gender">Gender:</label>
     <input type="text" id="gender" name="gender"><br><br>
@@ -59,5 +71,4 @@
     <label for="english_speaking_level">English Speaking Level:</label>
     <input type="text" id="english_speaking_level" name="english_speaking_level"><br><br>
     
-   
-
+</form>
