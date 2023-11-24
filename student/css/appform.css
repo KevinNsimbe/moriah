@@ -1,0 +1,18 @@
+.two-column-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+   
+    gap: 2px;
+}
+
+.two-column-form label {
+    display: block;
+}
+
+.two-column-form input,
+.two-column-form select,
+.two-column-form textarea {
+    width: 60%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
