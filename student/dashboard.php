@@ -48,7 +48,7 @@ $user_name = $_SESSION['user_name'];
                  <?php 
             
                 include_once 'home.php';
-                ?>!</p>
+                ?></p>
 
                 <!-- Other dashboard content -->
             </section>

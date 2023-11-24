@@ -21,9 +21,11 @@ if ($result->num_rows == 1) {
         header('Location: student/dashboard.php');
     } else {
         echo "Incorrect password!";
+        header('Location: index.php');
     }
 } else {
     echo "User not found!";
+    header('Location: index.php');
 }
 
 $conn->close();
