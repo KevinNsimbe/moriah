@@ -44,6 +44,7 @@ if ($result) {
     echo "</select><br><br>";
     echo "<label for='message'>Additional Message (optional):</label><br>";
     echo "<textarea id='message' name='message' rows='4' cols='50'></textarea><br><br>";
+    include_once 'appform.php';
     echo "<input type='submit' value='Apply'>";
     echo "</form>";
 }
