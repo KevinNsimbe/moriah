@@ -11,7 +11,17 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id']; // Assuming user ID is available through session
 $course_id = $_POST['course']; // Get the selected course ID from the form
 $message = $_POST['message']; // Additional message from the form (if provided)
+$gender = $_POST['gender'];
+$lastname = $_POST['lastname'];
+$firstname = $_POST['firstname'];
+$phone_number = $_POST['phone_number'];
+$email = $_POST['email'];
+$dob = $_POST['date_of_birth'];
+$pob = $_POST['place_of_birth'];
 
+$nationality = $_POST['nationality'];
+$mother_tongue = $_POST['mother_tongue'];
+$id_number = $_POST['id_number'];
 // Insert the application into the course_applications table
 $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
 
