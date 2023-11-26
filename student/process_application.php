@@ -22,6 +22,17 @@ $pob = $_POST['place_of_birth'];
 $nationality = $_POST['nationality'];
 $mother_tongue = $_POST['mother_tongue'];
 $id_number = $_POST['id_number'];
+$parent_title = $_POST['parent_title'];
+$parent_name = $_POST['parent_name'];
+$parent_address = $_POST['parent_address'];
+$parent_town = $_POST['parent_town'];
+
+$parent_mobile_number = $_POST['parent_mobile_number'];
+$parent_email = $_POST['parent_email'];
+$sponsor = $_POST['sponsor'];
+$course_date = $_POST['course_date'];
+$intake_date = $_POST['intake_date'];
+$english_speaking_level = $_POST['english_speaking_level'];
 // Insert the application into the course_applications table
 $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
 
