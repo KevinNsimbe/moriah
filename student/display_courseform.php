@@ -18,7 +18,7 @@
 
     if ($pendingApplication) {
         echo "<div class='form-container'>";
-        echo "<h2>Your Course Application Details</h2>";
+        echo "<h2>Your Course Application Details<br> <p>Course : {$result['course_name']}.</p></h2>";
         echo "<form class='two-column-form'>";
         
         // Split fetched fields into two columns
