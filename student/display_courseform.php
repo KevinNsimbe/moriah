@@ -19,7 +19,9 @@
     if ($pendingApplication) {
         echo "<div class='form-container'>";
         echo "<h2>Your Course Application Details<br> <p>Course : {$result['course_name']}.</p></h2>";
-        echo "<form class='two-column-form'>";
+        echo "<form class='two-column-form' action='processform.php' method='POST' enctype='multipart/form-data'>";
+        
+       // echo "<form action="file_upload.php" method='POST' class='two-column-form'>";
         
         // Split fetched fields into two columns
         $fieldsCount = count($pendingApplication);
@@ -38,7 +40,7 @@
             }
         }
         echo "</div>"; // Close the last column
-        
+        include_once 'file_upload.php';
         echo "<input type='submit' value='Submit' class='submit-btn'>";
         echo "</form>";
         echo "</div>";
