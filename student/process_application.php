@@ -48,9 +48,9 @@ $statement->execute([$user_id, $course_id,$gender, $lastname, $phone_number,$fir
 ]);
 
 // Confirm the application in the course_confirmation table
-$queryConfirmation = "INSERT INTO course_confirmation (user_id, course_id) VALUES (?, ?)";
+$queryConfirmation = "INSERT INTO course_confirmation (user_id, course_id,confirm) VALUES (?, ?,?)";
 $statementConfirmation = $pdo->prepare($queryConfirmation);
-$statementConfirmation->execute([$user_id, $course_id]);
+$statementConfirmation->execute([$user_id, $course_id,1]);
 
 // Redirect back to the dashboard or a confirmation page after application submission
 header("Location: dashboard.php");
