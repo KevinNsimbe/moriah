@@ -30,6 +30,7 @@ $result = $statementCheck->fetch(PDO::FETCH_ASSOC);
 if ($result) {
     echo "<p>Hello, $user_name! You have applied for {$result['course_name']}.</p>";
     // Display information or courses the user has applied for
+    include_once 'application_confirmation.php';
 } else {
     echo "<h1>Hello, $user_name!</h1>";
     echo "<p>You have not applied for any course yet.</p>";

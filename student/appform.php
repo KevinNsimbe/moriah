@@ -10,8 +10,8 @@
     }
     ?>
  </select><br>
-    <label for='message'>Additional Message (optional):</label><br>
-   <textarea id='message' name='message' rows='4' cols='50'></textarea><br>
+    <!-- <label for='message'>Additional Message (optional):</label><br>
+   <textarea id='message' name='message' rows='4' cols='50'></textarea><br> -->
 
 
    <label for="gender">Gender:</label>
@@ -79,7 +79,7 @@
     <input type="date" id="intake_date" name="intake_date">
     
     <label for="english_speaking_level">English Speaking Level:</label>
-    <input type="text" id="english_speaking_level" name="english_speaking_level">
+    <input type="text" id="english_speaking_level" name="English_speaking_level">
   <input type='submit' value='Apply'>
    
 </form>
