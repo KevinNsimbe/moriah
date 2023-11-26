@@ -10,8 +10,8 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the pas
 $sql = "INSERT INTO users (full_name, email, password) VALUES ('$fullname', '$email', '$password')";
 
 if ($conn->query($sql) === TRUE) {
-    //echo "Registration successful!";
-    header('Location: student/dashboard.php');
+    echo "Registration successful!";
+    header('Location: index.php');
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     header('Location: index.php');
