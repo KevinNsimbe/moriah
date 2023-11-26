@@ -1,3 +1,8 @@
+
+<head>
+<link rel="stylesheet" href="css/course_pendingform.css" media="print">
+</head>
+<body>
 <?php
 // Assuming $user_id is available after the user logs in or through session data
 //$pdo = new PDO('mysql:host=localhost;dbname=your_database', 'username', 'password');
@@ -32,3 +37,7 @@ if ($pendingApplications && count($pendingApplications) > 0) {
     // Or display another message for confirmed applications
 }
 ?>
+<table class="print-table">
+        <!-- Your PHP-generated table content here -->
+    </table>
+</body>
