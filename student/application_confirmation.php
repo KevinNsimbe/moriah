@@ -12,6 +12,8 @@ if ($resultConfirmation && $resultConfirmation['confirmation_count'] > 0) {
     echo "Your application is confirmed!";
 } else {
     echo "Your application is pending for confirmation.";
-    echo "<br>Please print the application form and attach the application fee payslip and bring them to office";
+    echo "<br>Please print the application form and attach the application fee payslip and bring them to office<hr>";
+    echo '<table><tr><th>Application Fee</th><th>Payment Details</tr>
+    <tr><td>100,000</td><td>6030502000172 <br> Post Bank Entebbe Branch</td></tr></table><hr>';
 }
 ?>
