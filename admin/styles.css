@@ -1,0 +1,99 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5fafc; /* Sky blue background */
+    color: rgb(3, 0, 0); /* White text color */
+}
+
+header {
+    background-color: #006CA9;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+}
+
+/* Navigation bar styles */
+nav {
+    display: flex; /* Utilize flex layout for the body */
+    min-height: 80vh; /* Set body height to full viewport height */
+    width: 20%;
+    background-color: #0496C7; /* Sky blue for the navigation */
+    color: white;
+    padding: 20px;
+    height: 100%; /* Ensure full height */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li {
+    
+    margin-bottom: 10px;
+    border: 1px solid white; /* Add a border around each list item */
+    padding: 25px;
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Dashboard content styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Light background color on hover */
+}
+
+/* ... (other CSS code) ... */
+
+/* Hamburger menu icon styles */
+.menu-icon {
+    display: none; /* Hide by default for non-mobile screens */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile view styles - Media Query for small screens */
+@media only screen and (max-width: 768px) {
+    header {
+        position: relative;
+    }
+
+    .menu-icon {
+        display: block; /* Show menu icon for mobile */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    nav {
+        width: 100%; /* Full width for mobile */
+        position: absolute;
+        top: 60px; /* Adjust top distance as needed */
+        left: -100%; /* Hide by default for mobile */
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+    nav.active {
+        left: 0; /* Show navigation when active */
+    }
+}
