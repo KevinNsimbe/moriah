@@ -48,7 +48,7 @@ $statement->execute([$user_id, $course_id,$gender, $lastname, $phone_number,$fir
 ]);
 
 // Confirm the application in the course_confirmation table
-$queryConfirmation = "INSERT INTO course_confirmation (user_id, course_id,confirm) VALUES (?, ?,?)";
+$queryConfirmation = "INSERT INTO course_confirmation (user_id, course_id,comfirm) VALUES (?, ?,?)";
 $statementConfirmation = $pdo->prepare($queryConfirmation);
 $statementConfirmation->execute([$user_id, $course_id,1]);
 

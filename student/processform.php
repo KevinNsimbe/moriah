@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $to_email = 'kevinnsimbe5@gmail.com';
+    $to_email = 'training@moriahaerocollege.ac.ug';
 
     // Fetch form data
     $pdfFile = $_FILES['pdfFile']['tmp_name'];
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Email headers
-    $headers = "From: kevinnsimbe5@gmail.com\r\n";
+    $headers = "From: training@moriahaerocollege.ac.ug\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: multipart/mixed; boundary=boundary1234\r\n";
 
@@ -42,10 +42,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Send email
     if (mail($to_email, $subject, $body, $headers)) {
         //$queryConfirmation = "INSERT INTO course_confirmation (user_id, course_id,confirm) VALUES (?, ?,?)";
-        $queryConfirmation = "UPDATE course_confirmation SET confirm = 1 WHERE user_id = $user_id";
+        $queryConfirmation = "UPDATE `course_applications` SET `is_confirmed` = 1 WHERE course_applications.id = $user_id";
+       // $queryConfirmation = "UPDATE course_confirmation SET confirm = 1 WHERE user_id = $user_id";
         $statementConfirmation = $pdo->prepare($queryConfirmation);
         $statementConfirmation->execute([$user_id]);
         echo "Email sent successfully!";
+
+       
+
+
+
 
     } else {
         echo "Email sending failed!";

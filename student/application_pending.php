@@ -9,7 +9,8 @@ $statementCheckConfirmation->execute([$user_id]);
 $resultConfirmation = $statementCheckConfirmation->fetch(PDO::FETCH_ASSOC);
 
 if ($resultConfirmation && $resultConfirmation['confirmation_count'] > 0) {
-    echo "Your application is under review!";
+    echo "Your application is confirmed!";
+    
 } else {
     echo "Your application is pending for confirmation.";
     echo "<br>Please print the application form and attach the application fee payslip and bring them to office<hr>";
