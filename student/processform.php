@@ -41,16 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Send email
     if (mail($to_email, $subject, $body, $headers)) {
-        //$queryConfirmation = "INSERT INTO course_confirmation (user_id, course_id,confirm) VALUES (?, ?,?)";
-        $queryConfirmation = "UPDATE `course_applications` SET `is_confirmed` = 1 WHERE course_applications.id = $user_id";
-       // $queryConfirmation = "UPDATE course_confirmation SET confirm = 1 WHERE user_id = $user_id";
-        $statementConfirmation = $pdo->prepare($queryConfirmation);
-        $statementConfirmation->execute([$user_id]);
+        
+        include_once 'coures_confirmation.php';
         echo "Email sent successfully!";
-
-       
-
-
 
 
     } else {
