@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
-    header("Location: index.php"); // Redirect to login if not logged in
+if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
+    // Redirect to login page if user is not logged in
+    header('Location: index.php');
     exit();
 }
 
@@ -15,7 +16,7 @@ $user_name = $_SESSION['user_name'];
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to your separate CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your separate CSS file -->
 </head>
 
 <body>
@@ -31,11 +32,12 @@ $user_name = $_SESSION['user_name'];
         <nav>
             <ul>
             <li><a href="home.php" data-page="home.php" class="nav-link">Dashboard</a></li>
-            <li><a href="academic_info.php" data-page="academic_info.php" class="nav-link">Academic Information</a></li>
-            <li><a href="courses.php" data-page="courses.php" class="nav-link">Courses</a></li>
-            <li><a href="results.php" data-page="results.php" class="nav-link">Results</a></li>
-            <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Timetable</a></li>
-            <li><a href="finance.php" data-page="finance.php" class="nav-link">Finance</a></li>
+            <li><a href="students.php" data-page="students.php" class="nav-link">Students</a></li>
+            <li><a href="courses.php" data-page="courses.php" class="nav-link">Applications under Review</a></li>
+            <li><a href="results.php" data-page="results.php" class="nav-link">Pending Applications</a></li>
+            <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Courses</a></li>
+            <li><a href="finance.php" data-page="finance.php" class="nav-link">Add Courses</a></li>
+            <li><a href="finance.php" data-page="finance.php" class="nav-link">Logout</a></li>
             </ul>
         </nav>
 

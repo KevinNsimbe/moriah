@@ -3,11 +3,11 @@ session_start();
 include 'db/db_connection.php'; // Include the database connection
 
 // Get form data
-$username = $_POST['adname'];
+$name = $_POST['adname'];
 $password = $_POST['adpassword'];
 
 // SQL query to retrieve user data
-$sql = "SELECT id, adname, adpassword FROM uadmin WHERE adname='$username'";
+$sql = "SELECT id, adname, adpassword FROM admin WHERE adname='$name'";
 $result = $conn->query($sql);
 
 if ($result->num_rows == 1) {
@@ -18,7 +18,7 @@ if ($result->num_rows == 1) {
         $_SESSION['user_name'] = $row['adname'];
         echo "Login successful!";
         // Redirect to dashboard or another page
-        header('Location: dashboard.php');
+        header('Location: admin_dashboard.php');
     } else {
         echo "Incorrect password!";
         header('Location: index.php');
