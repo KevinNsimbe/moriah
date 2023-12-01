@@ -47,7 +47,21 @@ $user_name = $_SESSION['user_name'];
                 echo $totalApplications;
                 ?></b>
             </a></li>
-            <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Confirmed Applications</a></li>
+            <li><a href="confirmed.php" data-page="confirmed.php" class="nav-link">Confirmed Applications
+                <b>
+                <?php
+                $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
+                
+                function countConfirmedApplications($pdo){
+                $querystatment = $pdo->query("SELECT COUNT(*) as total FROM course_applications where is_confirmed = 2");
+                $result = $querystatment->fetch(PDO::FETCH_ASSOC);
+                return $result['total'];
+                }
+                $totalConfirmedApplications = countConfirmedApplications($pdo);
+                echo $totalConfirmedApplications;
+                ?>
+
+            </a></li>
             <li><a href="underreview.php" data-page="underreview.php" class="nav-link">Applications Under Review
             <?php
                 $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
@@ -77,6 +91,8 @@ $user_name = $_SESSION['user_name'];
         <!-- Dashboard content on the right -->
         <div class="main-content" id="dashboard-content">
             <section>
+            <div id="view-application-content"></div>
+
                 <!-- Your dashboard content -->
                  <?php 
             

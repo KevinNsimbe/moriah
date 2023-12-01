@@ -10,13 +10,21 @@
     // Assuming $user_id is available after the user logs in or through session data
    // $pdo = new PDO('mysql:host=localhost;dbname=your_database', 'username', 'password');
 
-    $queryCheckPending = "SELECT course_date,intake_date,firstname, lastname, gender, email, phone_number, date_of_birth,place_of_birth,nationality,mother_tongue,id_number,parent_title,parent_name,parent_address,parent_town,parent_mobile_number,parent_email,sponsor,English_speaking_level FROM course_applications WHERE user_id = ? AND is_confirmed = 0";
+    $queryCheckPending = "SELECT course_date,intake_date,firstname, lastname, gender, email, 
+    phone_number, date_of_birth,place_of_birth,nationality,mother_tongue,id_number,
+    parent_title,parent_name,parent_address,parent_town,parent_mobile_number,
+    parent_email,sponsor,English_speaking_level FROM course_applications WHERE user_id = ? AND is_confirmed = 0";
     $statementCheckPending = $pdo->prepare($queryCheckPending);
     $statementCheckPending->execute([$user_id]);
 
     $pendingApplication = $statementCheckPending->fetch(PDO::FETCH_ASSOC);
 
     if ($pendingApplication) {
+
+        echo "Your application is pending for confirmation.";
+    echo "<br>Please print the application form and attach the application fee payslip and bring them to office<hr>";
+    echo '<table><tr><th>Application Fee</th><th>Payment Details</tr>
+    <tr><td>100,000</td><td>6030502000172 <br> Post Bank Entebbe Branch</td></tr></table><hr>';
         echo "<div class='form-container'>";
         echo "<h2>Your Course Application Details<br> <p>Course : {$result['course_name']}.</p></h2>";
         echo "<form class='two-column-form' action='processform.php' method='POST' enctype='multipart/form-data'>";
@@ -45,7 +53,8 @@
         echo "</form>";
         echo "</div>";
     } else {
-        echo "Your application is confirmed!";
+        echo "Your application is confirmed!<br>Please Enroll for a new Semester";
+        include_once 'enrollment.php';
         // Or display another message for confirmed applications
     }
     ?>

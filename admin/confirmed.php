@@ -16,7 +16,7 @@ $userID = $_SESSION['user_id'];
 $query = "SELECT a.user_id,a.id, a.firstname, c.course_name, a.lastname, a.Gender, a.email, a.intake_date, a.nationality, a.phone_number
  FROM course_applications a 
 JOIN courses c ON a.course_id = c.id
-where a.is_confirmed=1";
+where a.is_confirmed=2";
 
 
 $statement = $pdo->query($query);
@@ -25,11 +25,11 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User's Course Information</title>
+    <title>Confirmed Applications</title>
     <link rel="stylesheet" href="tablestyle.css">
 </head>
 <body>
-    <h1>User's Course Information</h1>
+    <h1>Confirmed User Applications</h1>
     <table>
         <thead>
             <tr>
@@ -41,7 +41,7 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <th>Email</th>
                 <th>Tell</th>
                 <th>Nationality</th>
-                
+                <th>Action</th>
                 
             </tr>
         </thead>
@@ -56,17 +56,10 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone_number']; ?></td>
                     <td><?php echo $row['nationality']; ?></td>
-                    
-
-                    <td>
-                       <td><a href="#" class="view-link" data-application-id="<?php echo $row['user_id']; ?>">View</a></td>
-               </td>
-                    <td>
-                        <a href="confirm_application.php?user_id=<?php echo $row['user_id']; ?>">Confirm</a>
-                    </td>
                    
-                    
-                    
+                       <td><a href="#" class="view-link" data-application-id="<?php echo $row['user_id']; ?>">Enroll</a></td>
+              
+                  
                 </tr>
             <?php endforeach; ?>
         </tbody>
