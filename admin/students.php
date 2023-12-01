@@ -14,19 +14,23 @@ $applications = fetchAllApplications($pdo);
 <html>
 <head>
     <title>Admin Dashboard - All Applications</title>
+    <link rel="stylesheet"  type="text/css" href="tablestyle.css">
 </head>
 <body>
     <h1>All Applications</h1>
 
     <!-- Table to display all applications -->
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <!-- Table headers -->
                 <th>ID</th>
                 <!-- Include other columns here -->
-                <th>Gender</th>
+                <th>First Name</th>
                 <th>Last Name</th>
+                <th>Gender</th>
+                <th>Tell</th>
+                <th>Email</th>
                 <!-- Add other columns based on your application table -->
             </tr>
         </thead>
@@ -35,9 +39,12 @@ $applications = fetchAllApplications($pdo);
                 <tr>
                     <!-- Display application details -->
                     <td><?php echo $application['id']; ?></td>
-                    <!-- Include other columns data -->
-                    <td><?php echo $application['Gender']; ?></td>
+                    <td><?php echo $application['firstname']; ?></td>
                     <td><?php echo $application['lastname']; ?></td>
+                    <td><?php echo $application['Gender']; ?></td>
+                    <!-- Include other columns data -->
+                    <td><?php echo $application['phone_number']; ?></td>
+                    <td><?php echo $application['email']; ?></td>
                     <!-- Add other columns based on your application table -->
                 </tr>
             <?php endforeach; ?>
