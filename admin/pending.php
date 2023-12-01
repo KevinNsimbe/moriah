@@ -13,10 +13,10 @@ $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
 $userID = $_SESSION['user_id'];
 
 // SQL query to fetch user's course information
-$query = "SELECT a.id, a.firstname, c.course_name, a.lastname, a.Gender, a.email, a.intake_date, a.nationality, a.phone_number
+$query = "SELECT a.id, a.firstname, c.course_name 
  FROM course_applications a 
 JOIN courses c ON a.course_id = c.id
-where a.is_confirmed=0";
+where a.is_confirmed=1";
 
 
 $statement = $pdo->query($query);
@@ -47,28 +47,15 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         <thead>
             <tr>
                 <th>First Name</th>
-                <th>Last Name</th>
+               
                 <th>Course Name</th>
-                <th>Intake Date</th>
-                <th>Gender</th>
-                <th>Email</th>
-                <th>Tell</th>
-                <th>Nationality</th>
-                
             </tr>
         </thead>
         <tbody>
             <?php foreach ($results as $row) : ?>
                 <tr>
-                <td><?php echo $row['firstname']; ?></td>
-                    <td><?php echo $row['lastname']; ?></td>
+                    <td><?php echo $row['firstname']; ?></td>
                     <td><?php echo $row['course_name']; ?></td>
-                    <td><?php echo $row['intake_date']; ?></td>
-                    <td><?php echo $row['Gender']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['phone_number']; ?></td>
-                    <td><?php echo $row['nationality']; ?></td>
-                    
                     
                 </tr>
             <?php endforeach; ?>

@@ -13,10 +13,10 @@ $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
 $userID = $_SESSION['user_id'];
 
 // SQL query to fetch user's course information
-$query = "SELECT a.id, a.firstname, c.course_name, a.lastname, a.Gender, a.email, a.intake_date, a.nationality, a.phone_number
+$query = "SELECT a.user_id,a.id, a.firstname, c.course_name, a.lastname, a.Gender, a.email, a.intake_date, a.nationality, a.phone_number
  FROM course_applications a 
 JOIN courses c ON a.course_id = c.id
-where a.is_confirmed=0";
+where a.is_confirmed=1";
 
 
 $statement = $pdo->query($query);
@@ -26,20 +26,7 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
     <title>User's Course Information</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <link rel="stylesheet" href="tablestyle.css">
 </head>
 <body>
     <h1>User's Course Information</h1>
@@ -55,6 +42,7 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <th>Tell</th>
                 <th>Nationality</th>
                 
+                
             </tr>
         </thead>
         <tbody>
@@ -68,6 +56,15 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone_number']; ?></td>
                     <td><?php echo $row['nationality']; ?></td>
+                    
+
+                    <td>
+                        <a href="view_application.php?user_id=<?php echo $row['user_id']; ?>">View</a>
+                    </td>
+                    <td>
+                        <a href="confirm_application.php?user_id=<?php echo $row['user_id']; ?>">Confirm</a>
+                    </td>
+                   
                     
                     
                 </tr>

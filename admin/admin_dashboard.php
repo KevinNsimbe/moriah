@@ -48,8 +48,22 @@ $user_name = $_SESSION['user_name'];
                 ?></b>
             </a></li>
             <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Confirmed Applications</a></li>
-            <li><a href="finance.php" data-page="finance.php" class="nav-link">Applications Under Review</a></li>
-            <li><a href="home.php" data-page="home.php" class="nav-link">Pending Applications</a></li>
+            <li><a href="underreview.php" data-page="underreview.php" class="nav-link">Applications Under Review
+            <?php
+                $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
+                
+                function countReviewApplications($pdo){
+                $querystatment = $pdo->query("SELECT COUNT(*) as total FROM course_applications where is_confirmed = 1");
+                $result = $querystatment->fetch(PDO::FETCH_ASSOC);
+                return $result['total'];
+                }
+                $totalReviewApplications = countReviewApplications($pdo);
+                echo $totalReviewApplications;
+                ?></b>
+
+            
+            </a></li>
+            <li><a href="pending.php" data-page="pending.php" class="nav-link">Pending Applications</a></li>
             <li><a href="students.php" data-page="students.php" class="nav-link">Students</a></li>
             <li><a href="courses.php" data-page="courses.php" class="nav-link">Instructors</a></li>
             <li><a href="results.php" data-page="results.php" class="nav-link">Set Semseter</a></li>
