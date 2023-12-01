@@ -31,12 +31,31 @@ $user_name = $_SESSION['user_name'];
         <!-- Navigation bar on the left -->
         <nav>
             <ul>
-            <li><a href="home.php" data-page="home.php" class="nav-link">Dashboard</a></li>
+            <li><a href="home.php" data-page="home.php" class="nav-link">Home</a></li>
+            <li><a href="students.php" data-page="students.php" class="nav-link">New Enrolles</a></li>
+            <li><a href="courses.php" data-page="courses.php" class="nav-link">Confirmed Enrolles</a></li>
+            <li><a href="newapplication.php" data-page="newapplication.php" class="nav-link">New Applications <b class="count">
+                <?php
+                $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
+                
+                function countAllApplication($pdo){
+                $querystatment = $pdo->query("SELECT COUNT(*) as total FROM course_applications where is_confirmed = 0");
+                $result = $querystatment->fetch(PDO::FETCH_ASSOC);
+                return $result['total'];
+                }
+                $totalApplications = countAllApplication($pdo);
+                echo $totalApplications;
+                ?></b>
+            </a></li>
+            <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Confirmed Applications</a></li>
+            <li><a href="finance.php" data-page="finance.php" class="nav-link">Applications Under Review</a></li>
+            <li><a href="home.php" data-page="home.php" class="nav-link">Pending Applications</a></li>
             <li><a href="students.php" data-page="students.php" class="nav-link">Students</a></li>
-            <li><a href="courses.php" data-page="courses.php" class="nav-link">Applications under Review</a></li>
-            <li><a href="results.php" data-page="results.php" class="nav-link">Pending Applications</a></li>
+            <li><a href="courses.php" data-page="courses.php" class="nav-link">Instructors</a></li>
+            <li><a href="results.php" data-page="results.php" class="nav-link">Set Semseter</a></li>
             <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Courses</a></li>
-            <li><a href="finance.php" data-page="finance.php" class="nav-link">Add Courses</a></li>
+            <li><a href="finance.php" data-page="finance.php" class="nav-link">Finance</a></li>
+            <li><a href="finance.php" data-page="finance.php" class="nav-link">Academics</a></li>
             <li><a href="finance.php" data-page="finance.php" class="nav-link">Logout</a></li>
             </ul>
         </nav>

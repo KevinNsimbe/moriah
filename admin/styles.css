@@ -7,6 +7,11 @@ body {
     color: rgb(3, 0, 0); /* White text color */
 }
 
+b .count{
+    font-size: 32px;
+    text-align: right;
+    background-color: aqua;
+}
 header {
     background-color: #006CA9;
     color: white;

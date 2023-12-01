@@ -7,10 +7,13 @@ th, td {
     border-bottom: 1px solid #ddd;
   }
 
-  tr:hover {background-color: coral;}
+  tr:hover {background-color: #AED3E3;}
 
   tr:nth-child(even) {background-color: #f2f2f2;}
   th {
-    background-color: #04AA6D;
+    background-color: #1c1e9c;
     color: white;
+  }
+  table {
+  width: 100%;
   }
