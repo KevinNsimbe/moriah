@@ -13,7 +13,7 @@ $currentSemester = $_POST['current_semester'];
 $currentAcademicYear = $_POST['current_academic_year'];
 
 // Establish database connection (replace with your database credentials)
-$pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
+include_once 'pd_str/pd_str.php';
 
 $query = "SELECT id, course_name FROM courses";
 $statement = $pdo->query($query);
@@ -53,10 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the current count of enrolled students for the course in the current year
         $queryCount = "SELECT COUNT(*) AS count FROM enrollment 
                        WHERE course_id = :courseId 
-                       AND current_academic_year = :currentYear";
+                       ";
         $statementCount = $pdo->prepare($queryCount);
         $statementCount->bindParam(':courseId', $courseId);
-        $statementCount->bindParam(':currentYear', $currentYear);
+        //$statementCount->bindParam(':currentYear', $currentYear);
         $statementCount->execute();
         $enrollmentCount = $statementCount->fetch(PDO::FETCH_ASSOC);
 
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $studentCount = $enrollmentCount['count'] + 1;
 
         // Generate student_registration_number in the format: MA/(course_initials)/(currentYear)/(studentCount)
-        $studentRegistrationNumber = "MAC/{$courseInitials}/{$currentYear}/{$studentCount}";
+        $studentRegistrationNumber = "MAC/{$courseInitials}/{$currentAcademicYear}/{$studentCount}";
 
         // Rest of your enrollment logic...
         // Insert the enrollment record with $studentRegistrationNumber
@@ -82,10 +82,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $success = $statement->execute();
 
     if ($success) {
-        echo "User enrolled successfully.";
+        echo "You are enrolled Successfully";
+         header('Location: dashboard.php');
         
     } else {
         echo "Failed to enroll user.";
+        
     }
 }
 }

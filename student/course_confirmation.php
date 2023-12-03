@@ -9,8 +9,8 @@ $user_name = $_SESSION['user_name'];
 
 $user_id = $_SESSION['user_id'];
 
-// Establish a database connection
-$pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
+
+include_once 'pd_str/pd_str.php';
 
 // Assuming you have a variable $user_id containing the user's ID
 //$user_id = 123; // Replace this with the actual user ID

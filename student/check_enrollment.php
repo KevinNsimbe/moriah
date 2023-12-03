@@ -3,8 +3,7 @@
 $currentUserID = $_SESSION['user_id']; // Replace this with the actual current user's ID
 //$desiredCourseID = 1; // Replace this with the desired course ID to check enrollment
 
-// Establish database connection (replace with your database credentials)
-$pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
+include_once 'pd_str/pd_str.php';
 
 // Prepare and execute the SQL query to check enrollment
 $query = "SELECT COUNT(*) AS 'enrollment_count'
