@@ -13,7 +13,7 @@
             text-align: center;
         }
         form {
-            max-width: 70%;
+            max-width: 400px;
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
@@ -24,7 +24,7 @@
             display: block;
             margin-bottom: 5px;
         }
-        input[type="text"] {
+        input[type="number"] {
             width: calc(100% - 12px);
             padding: 8px;
             margin-bottom: 15px;
@@ -37,28 +37,27 @@
             padding: 10px;
             border: none;
             border-radius: 4px;
-            background-color: #005690;
+            background-color: #4caf50;
             color: #fff;
             cursor: pointer;
             font-size: 16px;
         }
         input[type="submit"]:hover {
-            background-color: #3e77b6;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <h1>Enroll User</h1>
-        <label for="student_registration_number">Student Registration Number:</label>
-        <input type="text" id="student_registration_number" name="student_registration_number">
-
+    <form action="enroll_user.php" method="POST">
+       
         <label for="current_semester">Current Semester:</label>
-        <input type="text" id="current_semester" name="current_semester">
+        <input type="Number" id="current_semester" name="current_semester" required>
 
         <label for="current_academic_year">Current Academic Year:</label>
-        <input type="text" id="current_academic_year" name="current_academic_year">
+        <input type="text" id="current_academic_year" name="current_academic_year" required>
 
-        <input type="submit" value="Enroll User">
+        <input type="submit" value="Enroll Now">
     </form>
 </body>
 </html>
