@@ -24,8 +24,8 @@ $result = $statement->fetch(PDO::FETCH_ASSOC);
 
 // Check if there is an enrollment record for the current user and course
 if ($result['enrollment_count'] > 0) {
-    echo "The current user is already enrolled in the selected course.";
+    include_once 'display_enrollment_results.php';
 } else {
-    echo "You are not enrolled yet for the semster.";
+    echo "<h2>You are not enrolled yet for the semster.</h2>";
 }
 ?>

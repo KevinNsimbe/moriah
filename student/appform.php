@@ -39,9 +39,9 @@
     
     <label for="nationality">Nationality:</label>
 <select id="nationality" name="nationality">
-    <option value="Algerian">Uganda</option>
-    <option value="Angolan">Kenya</option>
-    <option value="Beninese">Tanzania</option>
+    <option value="Uganda">Uganda</option>
+    <option value="Kenya">Kenya</option>
+    <option value="Tanzania">Tanzania</option>
     <!-- Add more African countries as needed -->
 </select>
     

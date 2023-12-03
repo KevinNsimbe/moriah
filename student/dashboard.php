@@ -38,6 +38,8 @@ $user_name = $_SESSION['user_name'];
             <li><a href="results.php" data-page="results.php" class="nav-link">Results</a></li>
             <li><a href="timetable.php" data-page="timetable.php" class="nav-link">Timetable</a></li>
             <li><a href="finance.php" data-page="finance.php" class="nav-link">Finance</a></li>
+            <li><a href="profile.php" data-page="profile.php" class="nav-link">Profile</a></li>
+            <li><a href="logout.php" data-page="logout.php" class="nav-link">Logout</a></li>
             </ul>
         </nav>
 
