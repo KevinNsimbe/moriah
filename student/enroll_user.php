@@ -9,6 +9,9 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 // Display the logged-in student's name
 $user_name = $_SESSION['user_name'];
 $user_id = $_SESSION['user_id'];
+$currentSemester = $_POST['current_semester'];
+$currentAcademicYear = $_POST['current_academic_year'];
+
 // Establish database connection (replace with your database credentials)
 $pdo = new PDO('mysql:host=localhost;dbname=moriahesch', 'root', '');
 
@@ -80,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($success) {
         echo "User enrolled successfully.";
+        
     } else {
         echo "Failed to enroll user.";
     }

@@ -52,9 +52,13 @@
         echo "<input type='submit' value='Submit' class='submit-btn'>";
         echo "</form>";
         echo "</div>";
-    } else {
-        echo "Your application is confirmed!<br>Please Enroll for a new Semester";
-        include_once 'enrollment.php';
+    } 
+    else {
+
+        
+        
+       // include_once 'enrollment.php';
+       include_once 'check_enrollment.php';
         // Or display another message for confirmed applications
     }
     ?>
